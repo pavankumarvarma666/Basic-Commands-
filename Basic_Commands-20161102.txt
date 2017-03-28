@@ -2,10 +2,8 @@ veeresh.189@gmail.com
 
 #Crontab
 
-Anbu Questions. 
 
 When we create a instance in ec2, how can we can connect that instance from our local pc and Jump Server.
-Where we can store it a pem file?
 
 # Example
 # 0 0 * * * * = the top of every hour of every day.
@@ -274,11 +272,3 @@ dumpe2fs 1.41.12 (17-May-2010)
 /usr/bin/file: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.18, stripped
 
 
-Thirdy party installations:
-
-
-Where,
-
-    ./configure will configure the software to ensure your system has the necessary functionality and libraries to successfully compile the package
-    make will compile all the source files into executable binaries.
-    Finally, make install will install the binaries and any supporting files into the appropriate locations.
