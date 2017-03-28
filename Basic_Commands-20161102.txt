@@ -1,0 +1,284 @@
+veeresh.189@gmail.com
+
+#Crontab
+
+Anbu Questions. 
+
+When we create a instance in ec2, how can we can connect that instance from our local pc and Jump Server.
+Where we can store it a pem file?
+
+# Example
+# 0 0 * * * * = the top of every hour of every day.
+# */10 * * * * * = every ten seconds.
+# 0 0 8-10 * * * = 8, 9 and 10 o'clock of every day.
+# 0 0/30 8-10 * * * = 8:00, 8:30, 9:00, 9:30 and 10 o'clock every day.
+# 0 0 9-17 * * MON-FRI = on the hour nine-to-five weekdays
+# 0 0 0 25 12 ? = every Christmas Day at midnight
+
+######
+######
+
+
+Shared : This is the  shared memory . An indication of how much memory is common to more than
+              one process.
+Buffers: This entry indicates how much of the memory in use is currently being used for disk
+              buffering. File system metadata and other block reads are cached in the buffer cache.
+Cached: This entry indicates how much of the memory in use is currently being used for caching
+              purpose. Applications which are not running but was running few minutes back is cached in
+              memory with the idea that it will make the application running faster when it runs again. This
+              memory can be reclaimed .
+			  
+			  
+Local Traffic Manager  | LTM | F5
+Global Traffic Manager | GTM | F5
+
+[root@mailserver ~]# dmidecode -t memory
+[root@mailserver ~]# dmidecode -t cashe
+[root@mailserver ~]# dmidecode -t processor
+[root@mailserver ~]# dmidecode -t connector
+[root@mailserver ~]# dmidecode -t slot
+dmidecode -t 4 | head
+dmidecode -t 33
+
+
+=>1. Differences between xargs and exec commands:
+
+xargs command is faster than exec.
+xargs needs to be used with | (piped) [check example below] where as exec command doesn’t need be piped.
+xargs command fails if the filename or filenames has some weird character in it whereas exec works
+exec command can be used to execute commands without returning and opening and closing files whereas xargs uses pipes
+xargs supports large file counts thus uses memory compared to exec
+
+EX:
+
+pavankumar@shell02.cell.sv2.tellme.com:~ 05:07:47  $ ls
+authdump_stage.json  
+authdump.json 
+pavankumar@shell02.cell.sv2.tellme.com:~ 05:07:41  $ ls  | xargs wc -l
+2046 authdump.json
+1256 authdump_stage.json
+pavankumar@shell02.cell.sv2.tellme.com:~ 05:07:44  $ ls  | exec wc -l
+    2
+
+=>2. Shutdown command examples
+
+Shutdown the system and turn the power off immediately.
+# shutdown -h now
+Shutdown the system after 10 minutes.
+# shutdown -h +10
+Reboot the system using shutdown command.
+# shutdown -r now
+Force the filesystem check during reboot.
+# shutdown -Fr now
+
+=>3. Unzip command examples
+#unzip test.zip
+View the contents of *.zip file (Without unzipping it):
+$ unzip -l jasper.zip
+Archive:  jasper.zip
+  Length     Date   Time    Name
+ --------    ----   ----    ----
+    40995  11-30-98 23:50   META-INF/MANIFEST.MF
+    32169  08-25-98 21:07   classes_
+    15964  08-25-98 21:07   classes_names
+    10542  08-25-98 21:07   classes_ncomp
+
+=>4. Grep command examples. 
+
+Print the matched line, along with the 3 lines after it.
+$ grep -A 3 -i "example" demo_text
+ls   | grep glibc | xargs -I []  cp []     /opt/glibc1/
+ls   | grep glibc | xargs -I {}  cp []     /opt/glibc1/
+
+Multiple strings by using grep. 
+#egrep 'a|b' test
+Case letters
+#grep -i a  test && #grep -v b test.
+Search for a given string in all files recursively
+#grep -r "ramesh" *
+
+=>5. vim command examples
+
+Go to the 143rd line of file
+$ vim +143 filename.txt
+Go to the first match of the specified
+$ vim +/search-term filename.txt
+Open the file in read only mode.
+$ vim -R /etc/passwd
+
+=>6. ps command examples
+
+
+
+=>7.Crontab:
+
+1	Minute (0-59)
+2	Hour (2-24)
+3	Day of month (1-31)
+4	Month (1-12, Jan, Feb, etc)
+5	Day of week (0-6) 0 = Sunday, 1 = Monday etc or Sun, Mon, etc)
+6	User that the command will run as
+7	Command to execute
+
+If you wanted to run a command every 2 hours you could enter in */2 for the hour field. This would run the specified command at 2am, 4am, 6am, 8am, 10am, 12pm, 2pm, and so on. An example of this type of entry would be:
+
+0 */2 * * * joey /usr/bin/somecommand >> /dev/null 2>&1
+
+If you wanted to run a command every 2 hours you could enter in */2 for the hour field. This would run the specified command at 2am, 4am, 6am, 8am, 10am, 12pm, 2pm, and so on. An example of this type of entry would be:
+
+0 */2 * * * joey /usr/bin/somecommand >> /dev/null 2>&1
+
+
+If you wanted to run a command every day at a certain time for the first week of the month you would enter in 1-7 for the day field. An example of this type of entry would be:
+
+15,30 */2 1-7 * * joey /usr/bin/somecommand >> /dev/null 2>&1
+
+=> 8. What is Network Bonding ?
+
+Ans: Network bonding is the aggregation of multiple Lan cards into a single bonded interface to provide fault tolerance and high performance. Network bonding is also known as NIC Teaming.
+=> 9. What  are the different modes of Network bonding in Linux ?
+
+Ans: Below are list of modes used in Network Bonding :
+
+balance-rr or 0 – round-robin mode for fault tolerance and load balancing.
+active-backup or 1 – Sets active-backup mode for fault tolerance.
+balance-xor or 2 – Sets an XOR (exclusive-or) mode for fault tolerance and load balancing.
+broadcast or 3 – Sets a broadcast mode for fault tolerance. All transmissions are sent on all slave interfaces.
+802.3ad or 4  – Sets an IEEE 802.3ad dynamic link aggregation mode. Creates aggregation groups that share the same speed & duplex settings.
+balance-tlb or 5 –  Sets a Transmit Load Balancing (TLB) mode for fault tolerance & load balancing.
+balance-alb or 6 –  Sets an Active Load Balancing (ALB) mode for fault tolerance & load balancing.
+
+
+
+=> Sed 
+sed -i 's/dummy-v1-001/airtel-v1-001/g' /usr/sbin/airtel-custom-track-creation.sh
+sed 's/unix/linux/' file.txt
+sed 's/unix/linux/3g' file.txt it's changign 3rd word of unix. 
+sed '535 s/240/720/' file.txt
+ssh root@$i 'sed -i "524 s/240/720/" /usr/local/bin/janitor'
+
+sed '1,3 s/unix/linux/' file.txt
+sed -i s#/var/tellme/assist/chronos/#/var/tellme/assist/chronos/backupLogs/#   /usr/local/bin/janitor
+sed  -i '535 s/240/720/' /usr/local/bin/janitor
+sed  -i '537 s/168/720/'/usr/local/bin/janitor
+Deleting lines.
+sed '2 d' file.txt
+sed '5,$ d' file.txt
+Delting empty lines. 
+sed '/^$/d' a
+Duplicating lines
+sed 'p' file.txt
+
+Sed as grep command
+
+grep 'unix' file.txt
+sed -n '/unix/ p' file.txt
+>grep -v 'unix' file.txt
+>sed -n '/unix/ !p' file.txt
+
+Add a line after a match.
+The sed command can add a new line after a pattern match is found. The "a" command to sed tells it to add a new line after a match is found.
+
+sed '/unix/ a "Add a new line"' file.txt
+unix is great os. unix is opensource. unix is free os.
+"Add a new line"
+learn operating system.
+unixlinux which one you choose.
+"Add a new line"
+
+Add a line before a match
+
+sed '/unix/ i "Add a new line"' file.txt
+
+
+Change a line
+
+>sed '/unix/ c "Change line"' file.txt
+"Change line"
+learn operating system.
+"Change line"
+
+grep -v "^#" /etc/squid/squid.conf | sed -e '/^$/d'
+
+Transform like tr command
+
+>sed 'y/ul/UL/' file.txt
+
+=> 10. How to check and verify the status the bond interface.
+
+Ans: Using the command ‘cat /proc/net/bonding/bond0’ , we can check which mode is enabled and what lan cards are used in this bond. In this example we have one only one bond interface but we can have multiple bond interface like bond1,bond2 and so on.
+
+=> 11. What is the range of nice priority values?
+
+Process priority values range from -20 to 19.
+A process with the nice value of -20 is considered to be on top of the priority. And a process with nice value of 19 is considered to be low on the priority list.
+nice -10 <command name> Will set a process with the priority of "10".
+
+Changing the priority of an already running process in linux
+
+In order to change the priority of an already running process you can use "renice" command.
+
+Suppose you see that your machine is running slow due to some lengthy process(which is not a required process at the moment), then you can reduce the priority of that process with the help of renice command. And also increase the priority of your required process at the moment.
+
+renice command is very much similar to the nice command( interms of options in priority), however it does differ slightly in terms of parameters. You can give username,groupname etc in renice command as a parameter.
+
+renice -4 -p 3423
+
+Find:
+
+find /var/tellme/afv/logs/afvconsole -type f -mtime -31 -print0 | xargs -0 du -sch
+
+
+
+Rsync
+
+rsync -zvh backup.tar /tmp/backups/
+rsync -avzh /root/rpmpkgs /tmp/backups/
+rsync -avz rpmpkgs/ root@192.168.0.101:/home/
+rsync -avzhe ssh root@192.168.0.100:/root/install.log /tmp/
+Show Progress While Transferring Data with rsync
+rsync -avzhe ssh --progress /home/rpmpkgs root@192.168.0.100:/root/rpmpkgs
+
+rsync -avzhe ssh --max-size='200k' /var/lib/rpm/ root@192.168.0.100:/root/tmprp
+
+rsync --remove-source-files -zvh backup.tar /tmp/backups/
+
+
+Use of this option will not make any changes only do a dry run of the command and shows the output of the command, if the output shows exactly same you want to do then you can remove ‘–dry-run‘ option from your command and run on the terminal.
+
+
+rsync --dry-run --remove-source-files -zvh backup.tar /tmp/backups/
+Set Bandwidth Limit and Transfer File
+rsync --bwlimit=100 -avzhe ssh  /var/lib/rpm/  root@192.168.0.100:/root/tmprpm/
+Export:
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/var/tellme/rerun_sftp/britishgas/lib64/
+
+# echo $0
+-sh
+# echo $SHELL
+/sbin/sh
+
+[root@server01 ~]# dumpe2fs  /dev/mapper/linuxtesting-bhaavik  | grep -i  superblock
+dumpe2fs 1.41.12 (17-May-2010)
+  Primary superblock at 0, Group descriptors at 1-1
+  Backup superblock at 32768, Group descriptors at 32769-32769
+  Backup superblock at 98304, Group descriptors at 98305-98305
+  Backup superblock at 163840, Group descriptors at 163841-163841
+  Backup superblock at 229376, Group descriptors at 229377-229377
+  
+  or  
+# mke2fs -n /dev/sda3
+
+[root@server02 ~]# file /usr/bin/file
+/usr/bin/file: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.18, stripped
+
+
+Thirdy party installations:
+
+
+Where,
+
+    ./configure will configure the software to ensure your system has the necessary functionality and libraries to successfully compile the package
+    make will compile all the source files into executable binaries.
+    Finally, make install will install the binaries and any supporting files into the appropriate locations.
